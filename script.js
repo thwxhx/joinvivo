@@ -11,7 +11,7 @@ const SOCIAL_LINKS = [
     desc: "Chat with fellow fans and get match links instantly.",
     cta: "Join group",
     icon: "fa-brands fa-whatsapp",
-    url: "https://chat.whatsapp.com/YOUR_WHATSAPP_GROUP_LINK"
+    url: "https://www.vivosports.live/p/wp.html"
   },
   {
     id: "whatsapp-channel",
@@ -20,7 +20,7 @@ const SOCIAL_LINKS = [
     desc: "One-way broadcasts: fixtures, streams and announcements.",
     cta: "Follow channel",
     icon: "fa-brands fa-whatsapp",
-    url: "https://whatsapp.com/channel/YOUR_WHATSAPP_CHANNEL_LINK"
+    url: "https://www.whatsapp.com/channel/0029VbCbhOuDzgT7kOp9SH29"
   },
   {
     id: "telegram-channel",
@@ -29,16 +29,7 @@ const SOCIAL_LINKS = [
     desc: "Fast stream links and match alerts, right when they go live.",
     cta: "Join channel",
     icon: "fa-brands fa-telegram",
-    url: "https://t.me/YOUR_TELEGRAM_CHANNEL"
-  },
-  {
-    id: "instagram",
-    name: "Instagram",
-    tag: "Highlights",
-    desc: "Match highlights, news and behind the scenes.",
-    cta: "Follow us",
-    icon: "fa-brands fa-instagram",
-    url: "https://instagram.com/YOUR_INSTAGRAM_HANDLE"
+    url: "https://t.me/+9Fp7JKDVI0ZhMWNl"
   }
 ];
 /* ================= END OF EDIT SECTION ================= */
