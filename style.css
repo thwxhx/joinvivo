@@ -23,12 +23,12 @@ a{color:inherit;text-decoration:none}
 
 /* Pitch background: the one signature element */
 .pitch{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
-.ring{position:absolute;left:50%;top:260px;border:1px solid rgba(121,111,199,.18);border-radius:50%;transform:translate(-50%,-50%);animation:breathe 9s ease-in-out infinite}
+.ring{position:absolute;left:50%;top:260px;border:1px solid rgba(121,111,199,.18);border-radius:50%;transform:translate3d(-50%,-50%,0);will-change:transform;backface-visibility:hidden;animation:breathe 12s ease-in-out infinite}
 .r1{width:340px;height:340px}
 .r2{width:640px;height:640px;animation-delay:-3s;border-color:rgba(121,111,199,.12)}
 .r3{width:980px;height:980px;animation-delay:-6s;border-color:rgba(121,111,199,.07)}
 .halfway{position:absolute;left:0;right:0;top:260px;height:1px;background:linear-gradient(90deg,transparent,rgba(121,111,199,.22),transparent)}
-@keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.05)}}
+@keyframes breathe{0%,100%{transform:translate3d(-50%,-50%,0) scale(1)}50%{transform:translate3d(-50%,-50%,0) scale(1.04)}}
 
 .wrap{
   position:relative;z-index:1;
@@ -51,11 +51,11 @@ a{color:inherit;text-decoration:none}
   display:inline-flex;align-items:center;gap:8px;
   padding:7px 14px;border-radius:999px;
   background:var(--glass);border:1px solid var(--line);
-  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
   font-size:.68rem;font-weight:600;letter-spacing:.16em;color:#cfcbee;
 }
-.live-dot{width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 0 rgba(121,111,199,.7);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(121,111,199,0)}100%{box-shadow:0 0 0 0 rgba(121,111,199,0)}}
+.live-dot{position:relative;width:7px;height:7px;border-radius:50%;background:var(--brand)}
+.live-dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--brand);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}70%,100%{transform:scale(3);opacity:0}}
 h1{
   margin-top:22px;
   font-size:clamp(2.9rem,14vw,6rem);
@@ -77,13 +77,13 @@ h1 span{
   display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;
   padding:18px;border-radius:20px;
   background:var(--glass);border:1px solid var(--line);
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   box-shadow:0 10px 30px rgba(0,0,0,.35);
-  transition:transform .35s var(--ease),border-color .3s,box-shadow .35s var(--ease);
+  will-change:transform;
+  transition:transform .4s var(--ease),border-color .3s ease;
   -webkit-tap-highlight-color:transparent;
 }
 .card::before{
-  content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s;
+  content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .35s ease;
   background:radial-gradient(260px circle at var(--mx) var(--my),rgba(121,111,199,.2),transparent 70%);
 }
 .card[data-id="whatsapp-group"]{--accent:#25d366}
@@ -94,7 +94,7 @@ h1 span{
 .icon{
   width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:1.6rem;
   background:var(--brand-soft);color:var(--accent);border:1px solid var(--line);
-  transition:transform .35s var(--ease),background .3s;
+  transition:transform .4s var(--ease);
 }
 .body{display:flex;flex-direction:column;gap:3px;min-width:0}
 .name{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-weight:800;font-size:1.05rem}
@@ -109,17 +109,17 @@ h1 span{
   font-size:.8rem;font-weight:600;color:#d9d6f2;
   padding:10px 14px;border-radius:999px;background:var(--brand);color:#fff;
   box-shadow:0 6px 16px rgba(121,111,199,.35);
-  transition:transform .3s var(--ease),box-shadow .3s;
+  transition:transform .4s var(--ease);
 }
 .go i{font-size:.7rem}
 
 @media (hover:hover){
-  .card:hover{transform:translateY(-4px);border-color:rgba(121,111,199,.5);box-shadow:0 18px 40px rgba(0,0,0,.5),0 0 0 1px rgba(121,111,199,.15)}
+  .card:hover{transform:translateY(-4px);border-color:rgba(121,111,199,.5)}
   .card:hover::before{opacity:1}
   .card:hover .icon{transform:scale(1.08) rotate(-4deg)}
-  .card:hover .go{transform:translateX(3px);box-shadow:0 8px 22px rgba(121,111,199,.5)}
+  .card:hover .go{transform:translateX(3px)}
 }
-.card:active{transform:scale(.98)}
+.card:active{transform:scale(.98);transition-duration:.15s}
 
 /* Mobile: compact the call to action into an arrow circle */
 @media (max-width:560px){
