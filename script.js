@@ -11,7 +11,7 @@ const SOCIAL_LINKS = [
     desc: "Chat with fellow fans and get match links instantly.",
     cta: "Join group",
     icon: "fa-brands fa-whatsapp",
-    url: "https://www.vivosports.live/p/wp.html"
+    url: "https://chat.whatsapp.com/YOUR_WHATSAPP_GROUP_LINK"
   },
   {
     id: "whatsapp-channel",
@@ -20,7 +20,7 @@ const SOCIAL_LINKS = [
     desc: "One-way broadcasts: fixtures, streams and announcements.",
     cta: "Follow channel",
     icon: "fa-brands fa-whatsapp",
-    url: "https://www.whatsapp.com/channel/0029VbCbhOuDzgT7kOp9SH29"
+    url: "https://whatsapp.com/channel/YOUR_WHATSAPP_CHANNEL_LINK"
   },
   {
     id: "telegram-channel",
@@ -29,7 +29,16 @@ const SOCIAL_LINKS = [
     desc: "Fast stream links and match alerts, right when they go live.",
     cta: "Join channel",
     icon: "fa-brands fa-telegram",
-    url: "https://t.me/+9Fp7JKDVI0ZhMWNl"
+    url: "https://t.me/YOUR_TELEGRAM_CHANNEL"
+  },
+  {
+    id: "instagram",
+    name: "Instagram",
+    tag: "Highlights",
+    desc: "Match highlights, news and behind the scenes.",
+    cta: "Follow us",
+    icon: "fa-brands fa-instagram",
+    url: "https://instagram.com/YOUR_INSTAGRAM_HANDLE"
   }
 ];
 /* ================= END OF EDIT SECTION ================= */
@@ -54,12 +63,19 @@ const SOCIAL_LINKS = [
   const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (fine && !calm) {
+    let ticking = false, last = null;
     grid.addEventListener("pointermove", function (e) {
       const card = e.target.closest(".card");
       if (!card) return;
-      const r = card.getBoundingClientRect();
-      card.style.setProperty("--mx", e.clientX - r.left + "px");
-      card.style.setProperty("--my", e.clientY - r.top + "px");
+      last = { card: card, x: e.clientX, y: e.clientY };
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        const r = last.card.getBoundingClientRect();
+        last.card.style.setProperty("--mx", last.x - r.left + "px");
+        last.card.style.setProperty("--my", last.y - r.top + "px");
+        ticking = false;
+      });
     });
   }
 
