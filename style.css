@@ -128,14 +128,7 @@ h1 span{
   .card{grid-template-columns:auto 1fr;padding:16px}
   .go{position:absolute;top:16px;right:16px;padding:0;width:34px;height:34px;justify-content:center}
   .go span{display:none}
-  .name{padding-right:40px}
-}
-
-/* Desktop: two column grid */
-@media (min-width:700px){
-  .links{grid-template-columns:1fr 1fr;gap:14px}
-  .card{grid-template-columns:1fr;gap:14px;padding:22px;align-items:start}
-  .go{justify-self:start}
+  .body{padding-right:44px}
 }
 
 /* Footer */
