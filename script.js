@@ -13,6 +13,24 @@ const SOCIAL_LINKS = [
     icon: "fa-brands fa-whatsapp",
     url: "https://www.vivosports.live/p/wp.html"
   },
+   {
+    id: "telegram-channel",
+    name: "Telegram Channel",
+    tag: "Live links",
+    desc: "Fast stream links and match alerts, right when they go live.",
+    cta: "Join channel",
+    icon: "fa-brands fa-telegram",
+    url: "https://t.me/+9Fp7JKDVI0ZhMWNl"
+  },
+     {
+    id: "website",
+    name: "Official Website",
+    tag: "Website",
+    desc: "Watch live streams, schedules and the latest news.",
+    cta: "Visit site",
+    icon: "fa-solid fa-globe",
+    url: "https://www.vivosports.live"
+  },
   {
     id: "whatsapp-channel",
     name: "WhatsApp Channel",
@@ -21,16 +39,8 @@ const SOCIAL_LINKS = [
     cta: "Follow channel",
     icon: "fa-brands fa-whatsapp",
     url: "https://www.whatsapp.com/channel/0029VbCbhOuDzgT7kOp9SH29"
-  },
-  {
-    id: "telegram-channel",
-    name: "Telegram Channel",
-    tag: "Live links",
-    desc: "Fast stream links and match alerts, right when they go live.",
-    cta: "Join channel",
-    icon: "fa-brands fa-telegram",
-    url: "https://t.me/+9Fp7JKDVI0ZhMWNl"
   }
+  
 ];
 /* ================= END OF EDIT SECTION ================= */
 
